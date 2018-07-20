@@ -6,8 +6,8 @@
 ## doc
 项目今天刚起步，待完善
 1. string gettype(mixed param):\
-功能: 获取变量的类型\ 
-参数: mixed param 需要检测的变量\ 
+功能: 获取变量的类型\
+参数: mixed param 需要检测的变量\
 返回: string type 变量的类型(小写)
 2. bool isset(mixed param):\
 功能: 判断变量是否建立了, 即为类型是否为undefined\
