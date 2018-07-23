@@ -103,6 +103,22 @@
             return (string && reHasEscapedHtml.test(string))
                 ? string.replace(reEscapedHtml, unescapeHtmlChar)
                 : string;
+        },
+        /**
+         * 对url进行转码
+         * @param string url 需要转码的url
+         * @return string url 转码后的url
+         */
+        urlencode(url){
+            return encodeURIComponent(url);
+        },
+        /**
+         * 对url进行解码
+         * @param string url 需要解码的url
+         * @return string url 解码后的url
+         */
+        urldecode(url){
+            return decodeURIComponent(url);
         }
     };
     //字符串操作部分
@@ -122,10 +138,82 @@
                     console.log(e);
                 }
             }
+        },
+        /**
+         * 在字符串中查找某个字符串是否出现过
+         * @param mixed needle
+         * @param string haystack
+         * @returns bool|int 匹配到返回位置, 找不到返回false
+         */
+        strpos(needle,haystack){
+            if(PHP_base.gettype(haystack) !== 'string'){
+                try{
+                    throw new Error('type_error: 第二个参数应为字符串');
+                }catch (e){
+                    console.log(e)
+                    return false
+                }
+            }
+            if(PHP_base.gettype(needle) !== 'string' ){
+                needle = JSON.stringify(needle); //转换成字符串
+            }
+            let index = haystack.indexOf(needle);
+            if( index > -1){
+                return index;
+            }
+            return false
         }
     };
     //数组的操作部分
-    var PHP_array = {};
+    var PHP_array = {
+        /**
+         * fixme map类型算不算数组
+         * 判断是否为数组, 不推荐使用
+         * @param mixed param 检测的变量
+         * @return bool 是否为数组
+         */
+        is_array(param){
+            if(PHP_base.gettype(param) == 'array'){
+                return true;
+            }
+            return false
+        },
+        /**
+         * 数组是否存在, 仅支持一维, 不支持多维
+         * @param mixed search 要找的值
+         * @param array param 在谁中找
+         * @return bool 是否找到
+         */
+        in_array(search,param){
+            let type = PHP_base.gettype(param);
+            if(type != 'array' || type != 'object'){
+                try {
+                    throw new Error('第二个参数应为数组');
+                }catch (e){
+                    console.log(e);
+
+                }
+            }
+            for(let i in param){
+                if(search == param[k]){
+                    return true;
+                }
+            }
+            return false;
+        },
+        /**
+         * 在arr中找是否存在key这个键
+         * @param mixed key
+         * @param array arr
+         * @return bool
+         */
+        array_key_exists(key,arr){
+            if(arr[key] == undefined){
+                return false
+            }
+            return true
+        }
+    };
     var PHP = Object.assign({},PHP_base,PHP_string,PHP_array);
     return PHP;
 }))
