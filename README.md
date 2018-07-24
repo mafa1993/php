@@ -30,12 +30,36 @@
 参数: string 变量\
 返回: string 转以后的字符串
 7. string urlencode
+功能: 对url进行转码\
+参数: string url 需要转码的url\
+返回: string url 转码后的url
 8. string urldecode
+功能: 对url进行解码\
+参数: string url 需要解码的url\
+返回: string url 解码后的url
 9. string strpos
+功能: 在字符串中查找某个字符串是否出现过\
+参数: string needle, 要查找的字符串\
+参数: string haystack, 在这个字符串中查找\
+返回: bool|int 匹配到返回位置, 找不到返回false
 10. bool is_array
+功能: 判断是否为数组, 不推荐使用\
+参数: mixed param 检测的变量\
+返回: bool 是否为数组
 11. bool in_array
+功能: 数组是否存在, 仅支持一维, 不支持多维\
+参数: mixed search 要找的值\
+参数: array param 在谁中找\
+返回: bool 是否找到
 12. bool array_key_exists
-
+功能: 在arr中找是否存在key这个键\
+参数: mixed key\
+参数: array arr\
+返回: bool 是否找到
+13. array array_keys
+功能: 获取数据的所有键\
+参数: object arr 需要获取键的数组, 一维数组\
+返回: array rtn 键的数组
 
 
 

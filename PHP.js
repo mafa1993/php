@@ -141,8 +141,8 @@
         },
         /**
          * 在字符串中查找某个字符串是否出现过
-         * @param mixed needle
-         * @param string haystack
+         * @param mixed needle, 要查找的字符安传
+         * @param string haystack, 在谁中查找
          * @returns bool|int 匹配到返回位置, 找不到返回false
          */
         strpos(needle,haystack){
