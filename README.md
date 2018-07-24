@@ -29,6 +29,12 @@
 功能: 字符串转换小写,封装了toLowerCase\
 参数: string 变量\
 返回: string 转以后的字符串
+7. string urlencode
+8. string urldecode
+9. string strpos
+10. bool is_array
+11. bool in_array
+12. bool array_key_exists
 
 
 

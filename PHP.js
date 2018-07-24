@@ -212,6 +212,25 @@
                 return false
             }
             return true
+        },
+        /**
+         * 获取数据的所有键
+         * @param object arr 需要获取键的数组, 一维数组
+         * @return array rtn 键的数组
+         */
+        array_keys(arr){
+            if(PHP_base.gettype(arr) !== 'array' || PHP_base.gettype(arr) !== 'object'){
+                try{
+                    throw new Error('typeError: 清传入一个数组或者对象');
+                }catch (e){
+                    console.log(e);
+                }
+            }
+            let rtn = new Array();
+            for(var k in arr){
+                rtn.push(k);
+            }
+            return rtn;
         }
     };
     var PHP = Object.assign({},PHP_base,PHP_string,PHP_array);
