@@ -231,6 +231,39 @@
                 rtn.push(k);
             }
             return rtn;
+        },
+        /**
+         * 数组/对象去重, 值相同的保留第一个键
+         * @param array/object arr 要去重的数组
+         * @return array/object rtn 已去重的
+         */
+        array_unique(arr){
+            let type = PHP_base.gettype(arr),
+                rtn;
+            if(type !== 'array' || type !== 'object'){
+                throm new Error('参数类型错误!');
+                return
+            }
+            /* 借用不了此方法, 对象不能调用, 原因未明
+            Array.prototype.forEach.call(bar,function () {
+
+            })*/
+            if(type == 'object'){
+                for(let k in arr){
+                    //防止是原型链上的扩展的属性
+                    if(arr.hasOwnProperty(k)){
+                        if(!this.in_array(arr[k],arr)){
+                            rtn.push(arr[k]);
+                        }
+                    }
+                }
+            }
+            arr.forEach(function (value,key,item) {
+                if(rtn.indexOf(value) == -1){
+                    rtn.push(value);
+                }
+            },this)
+            return rtn;
         }
     };
     var PHP = Object.assign({},PHP_base,PHP_string,PHP_array);

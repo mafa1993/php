@@ -60,6 +60,11 @@
 功能: 获取数据的所有键\
 参数: object arr 需要获取键的数组, 一维数组\
 返回: array rtn 键的数组
+14. array array_unique
+功能：数组/对象去重, 值相同的保留第一个键\
+参数：array/object arr 要去重的数组\
+返回：array/object rtn 已去重的
+
 
 
 
