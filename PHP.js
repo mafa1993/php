@@ -162,6 +162,36 @@
                 return index;
             }
             return false
+        },
+        /**
+         * 对字符串进行base64转码
+         * @param string str 需要进行转码的字符串
+         * @returns string 转码后的字符串
+         */
+        base64_encode(str){
+            if(PHP_base.gettype(str) !== 'string'){
+                try{
+                    throw new Error('参数必须为字符串');
+                    return '';
+                }
+            }
+
+            return window.btoa(str);
+        },
+        /**
+         * base64解码
+         * @param string str 需要进行base64解码的字符串
+         * @returns {*}
+         */
+        base64_decode(str){
+            if(PHP_base.gettype(str) !== 'string'){
+                try{
+                    throw new Error('参数必须为字符串');
+                    return '';
+                }
+            }
+
+            return window.atob(str);
         }
     };
     //数组的操作部分

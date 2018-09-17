@@ -2,7 +2,8 @@
 ## 项目介绍
 为了方便phper对js的书写与记忆，反之js函数与php函数用混。将php的函数用js实现，方便在前端使用。\
 这样封装以后并不一定会提升运行速度，还有可能影响速度。\
-**本人较菜，代码槽点较多，望大神指教**
+浏览器需要支持es6语法
+
 ## doc
 项目今天刚起步，待完善
 1. string gettype(mixed param):\
@@ -64,9 +65,14 @@
 功能：数组/对象去重, 值相同的保留第一个键\
 参数：array/object arr 要去重的数组\
 返回：array/object rtn 已去重的
-
-
-
+15. string base64_encode\
+功能: 对字符串进行base64转码\
+参数: string str 需要进行转码的字符串\
+返回: string 转码后的字符串
+16. string base64_decode\
+功能: 对字符串进行base64解码\
+参数: string str 需要进行解码的字符串\
+返回: string 解码后的字符串
 
 
   
